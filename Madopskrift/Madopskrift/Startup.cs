@@ -26,6 +26,22 @@ namespace Madopskrift
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder
+                    .WithOrigins("https://localhost:5001");
+                });
+
+                options.AddPolicy("Policy", builder =>
+                {
+                    builder
+                    .WithOrigins("https://localhost:5001")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +52,9 @@ namespace Madopskrift
                 app.UseDeveloperExceptionPage();
             }
 
+            // tillader Cors Request for domain 
+            app.UseCors("Policy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -44,7 +63,10 @@ namespace Madopskrift
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    );
             });
         }
     }

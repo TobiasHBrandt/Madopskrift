@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Madopskrift.Data;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,21 @@ using System.Threading.Tasks;
 
 namespace Madopskrift.Controllers
 {
-    public class OpskriftController : Controller
+    [Route("api/opskrift")]
+    [EnableCors("Policy")]
+    [ApiController]
+    public class OpskriftController : ControllerBase
     {
-        public IActionResult Index()
+        private MadopskriftDbContext _context {get; }
+
+        public OpskriftController(MadopskriftDbContext context)
         {
-            return View();
+            _context = context;
+
         }
+
+        [HttpGet]
+
+
     }
 }
