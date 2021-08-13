@@ -23,6 +23,10 @@ namespace Madopskrift.Controllers
 
         [HttpGet]
 
+        public IActionResult GetAllOpskrift()
+        {
+            return new JsonResult(_context.Opskrifts);
+        }
 
     }
 }

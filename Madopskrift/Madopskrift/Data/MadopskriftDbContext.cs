@@ -18,9 +18,7 @@ namespace Madopskrift.Data
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Bruger> Brugers { get; set; }
-        public virtual DbSet<Opskrift> Opskrifts { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -105,6 +103,9 @@ namespace Madopskrift.Data
             OnModelCreatingPartial(modelBuilder);
         }
 
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Bruger> Brugers { get; set; }
+        public virtual DbSet<Opskrift> Opskrifts { get; set; }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

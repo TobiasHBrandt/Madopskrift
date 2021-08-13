@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Madopskrift.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +27,9 @@ namespace Madopskrift
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MadopskriftDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddMvc();
             services.AddControllers();
             services.AddCors(options =>
             {
@@ -39,7 +44,8 @@ namespace Madopskrift
                     builder
                     .WithOrigins("https://localhost:5001")
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader()
+                    .AllowCredentials();
                 });
             });
         }
@@ -52,21 +58,26 @@ namespace Madopskrift
                 app.UseDeveloperExceptionPage();
             }
 
-            // tillader Cors Request for domain 
-            app.UseCors("Policy");
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            // tillader Cors Request for domain 
+            app.UseCors("Policy");
+
             app.UseAuthorization();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}"
+            //        );
+            //});
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
-                    );
+                endpoints.MapControllers();
             });
         }
     }
