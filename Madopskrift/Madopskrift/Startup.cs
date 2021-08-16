@@ -36,13 +36,13 @@ namespace Madopskrift
                 options.AddDefaultPolicy(builder =>
                 {
                     builder
-                    .WithOrigins("https://localhost:5001");
+                    .WithOrigins("http://localhost:4200");
                 });
 
                 options.AddPolicy("Policy", builder =>
                 {
                     builder
-                    .WithOrigins("https://localhost:5001")
+                    .WithOrigins("http://localhost:4200")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials();

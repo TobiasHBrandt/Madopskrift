@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Opskrift } from '../data/Opskrift';
 
 @Component({
   selector: 'app-forside',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForsideComponent implements OnInit {
 
-  constructor() { }
+  opskrift: Opskrift[] = [];
+
+  constructor(public dataService: DataService) { }
+
 
   ngOnInit(): void {
+    this.dataService.getAllOpskrift().subscribe((data: Opskrift[]) => {
+      this.opskrift = data;
+      
+    })
   }
 
 }

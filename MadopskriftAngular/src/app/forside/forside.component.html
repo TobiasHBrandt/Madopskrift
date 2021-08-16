@@ -1,1 +1,6 @@
-<p>forside works!</p>
+<div *ngFor="let Opskrift of opskrift">
+    <div>
+        {{Opskrift.Titel}}
+        {{Opskrift.Beskrivelse}}
+    </div>
+</div>
