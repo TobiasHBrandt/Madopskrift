@@ -105,7 +105,7 @@ namespace Madopskrift.Data
 
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Bruger> Brugers { get; set; }
-        public virtual DbSet<Opskrift> Opskrifts { get; set; }
+        public virtual DbSet<Opskrift> Opskrift { get; set; }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

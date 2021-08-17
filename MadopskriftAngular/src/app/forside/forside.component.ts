@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Opskrift } from '../data/Opskrift';
 
@@ -9,16 +9,18 @@ import { Opskrift } from '../data/Opskrift';
 })
 export class ForsideComponent implements OnInit {
 
-  opskrift: Opskrift[] = [];
+  // opskrift: Opskrift[] = [];
+     opskrift: Opskrift[] = [];
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService, private changeDetectorRef: ChangeDetectorRef) { }
 
 
   ngOnInit(): void {
-    this.dataService.getAllOpskrift().subscribe((data: Opskrift[]) => {
+    this.dataService.getAllOpskrift().subscribe(data => {
       this.opskrift = data;
-      
+      console.log(this.opskrift);
     })
+    // this.dataService.getAllOpskrift().subscribe(data => this.opskrift = data)
   }
 
 }

@@ -25,7 +25,7 @@ namespace Madopskrift.Controllers
 
         public IActionResult GetAllOpskrift()
         {
-            return new JsonResult(_context.Opskrifts);
+            return new JsonResult(_context.Opskrift);
         }
 
     }

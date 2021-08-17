@@ -31,6 +31,7 @@ namespace Madopskrift
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddMvc();
             services.AddControllers();
+            // tillader Cors Request for domain 
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
@@ -62,7 +63,7 @@ namespace Madopskrift
 
             app.UseRouting();
 
-            // tillader Cors Request for domain 
+            // sætter en value der bliver sat på controlleren så den giver tilladelse til cors requesten
             app.UseCors("Policy");
 
             app.UseAuthorization();
