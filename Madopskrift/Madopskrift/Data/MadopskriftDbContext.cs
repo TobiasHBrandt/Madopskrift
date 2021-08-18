@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Madopskrift.Models;
+using System.Linq;
 
 #nullable disable
 
@@ -28,8 +29,8 @@ namespace Madopskrift.Data
             {
                 entity.ToTable("Admin");
 
-                entity.HasIndex(e => e.Email, "UQ__Admin__A9D1053446F0894A")
-                    .IsUnique();
+                //entity.HasIndex(e => e.Email, "UQ__Admin__A9D1053446F0894A")
+                //    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -54,11 +55,11 @@ namespace Madopskrift.Data
             {
                 entity.ToTable("Bruger");
 
-                entity.HasIndex(e => e.Brugernavn, "UQ__Bruger__6BE4ADA0E104ECEB")
-                    .IsUnique();
+                //entity.HasIndex(e => e.Brugernavn, "UQ__Bruger__6BE4ADA0E104ECEB")
+                //    .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__Bruger__A9D1053491E8F716")
-                    .IsUnique();
+                //entity.HasIndex(e => e.Email, "UQ__Bruger__A9D1053491E8F716")
+                //    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
