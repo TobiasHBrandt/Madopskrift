@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input formControlName="Title" class="form-control">
+        <div >
+            <div></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Beskrivelse">Beskrivelse</label>
+        <textarea formControlName="Beskrivelse" class="form-control"></textarea>
+        <div >
+            <div></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Ingredienser">Ingredienser</label>
+        <textarea formControlName="Ingredienser" class="form-control"></textarea>
+        <div >
+            <div></div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Opret Opskrift</button>
+</form>
+
