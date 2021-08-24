@@ -59,16 +59,24 @@ namespace Madopskrift.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        
-        public IActionResult PostBruger (Bruger bruger)
+
+        public IActionResult PostBruger([FromBody] Bruger bruger)
         {
-            if (ModelState.IsValid)
+            using (var PostBruger = _context)
             {
-                _context.Brugers.Add(bruger);
-                _context.SaveChanges();
-                return Ok("tilfoej bruger");
+                if (PostBruger != null)
+                {
+                    _context.Brugers.Add(bruger);
+                    _context.SaveChanges();
+                    return Ok("tilfoej bruger");
+                }
+                else
+                {
+                    return NotFound("Not added");
+                }
+
             }
-            return View(bruger);
+            
         }
 
         // GET: Brugers/Edit/5

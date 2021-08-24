@@ -1,9 +1,9 @@
 
 <div>
     <u *ngFor="let opskrift of opskrifts" >
-        <li>{{opskrift.Title}}</li>
-        <li>{{opskrift.Beskrivelse}}</li>
-        <li>{{opskrift.Ingredienser}}</li> 
+        <li>{{opskrift.titel}}</li>
+        <li>{{opskrift.beskrivelse}}</li>
+        <li>{{opskrift.ingredienser}}</li> 
         <button href="#" [routerLink]="['/opskrift/', opskrift.id, 'show']" class="btn btn-info">View</button>
     </u>
     

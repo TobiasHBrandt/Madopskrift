@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tobr\\Documents\\GitHub\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj": {}
+    "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tobr\\Documents\\GitHub\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj": {
+    "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tobr\\Documents\\GitHub\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj",
+        "projectUniqueName": "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj",
         "projectName": "Madopskrift",
-        "projectPath": "C:\\Users\\tobr\\Documents\\GitHub\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj",
-        "packagesPath": "C:\\Users\\tobr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tobr\\Documents\\GitHub\\Madopskrift\\Madopskrift\\Madopskrift\\obj\\",
+        "projectPath": "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj",
+        "packagesPath": "C:\\Users\\tobias\\.nuget\\packages\\",
+        "outputPath": "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tobias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,6 +50,12 @@
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.15, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -84,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

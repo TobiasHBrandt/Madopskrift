@@ -10,8 +10,8 @@ import { catchError } from "rxjs/operators";
 })
 export class ApiService {
 
-  opskriftUrl = "https://localhost:44337/api/Opskrift";
-  BrugerUrl = "https://localhost:44337/api/Bruger"
+  opskriftUrl = "https://localhost:5001/api/Opskrift";
+  BrugerUrl = "https://localhost:5001/api/Bruger"
 
   httpOptions = {
     headers: new HttpHeaders({
