@@ -9,7 +9,7 @@ import { OpretOpskriftComponent } from './opret-opskrift/opret-opskrift.componen
 const routes: Routes = [{ path: '', component: ForsideComponent},
 { path: 'opretOpskrift', component: OpretOpskriftComponent},
 { path: 'opretBruger', component: OpretBrugerComponent},
-{ path: 'opskrift/:id/show', component: OpskriftComponent}];
+{ path: 'opskrift/:id', component: OpskriftComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

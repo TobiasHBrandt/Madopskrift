@@ -14,17 +14,20 @@
     </form>
 </div> -->
 
-<div *ngIf="opskrift">
+<div>
     <div>
-        <p>{{opskrift.Title}}</p>
+        <p>{{opskrift?.titel}}</p>
     </div>
 
     <div>
-        <p>{{opskrift.Beskrivelse}}</p>
+        <p>{{opskrift?.beskrivelse}}</p>
     </div>
     
     <div>
-        <p>{{opskrift.Ingredienser}}</p>
+        <p>{{opskrift?.ingredienser}}</p>
+    </div>
+    <div>
+        <p></p>
     </div>
 </div>
 

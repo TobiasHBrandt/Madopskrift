@@ -60,7 +60,7 @@ namespace Madopskrift.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public IActionResult PostBruger([FromBody] Bruger bruger)
+        public ActionResult PostBruger([FromBody] Bruger bruger)
         {
             using (var PostBruger = _context)
             {

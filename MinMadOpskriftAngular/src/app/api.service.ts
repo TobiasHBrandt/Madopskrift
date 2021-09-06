@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   getOpskriftById(id): Observable<any> {
-    return this.http.get(this.opskriftUrl, id)
+    return this.http.get(this.opskriftUrl + "/" + id)
   }
 
   createOpskrift(data): Observable<Opskrift> {
