@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="Titel">Title</label>
+        <input formControlName="titel" [(ngModel)]="opskrift.titel" class="form-control">
+        <div >
+            <div></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Beskrivelse">Beskrivelse</label>
+        <textarea formControlName="beskrivelse" [(ngModel)]="opskrift.beskrivelse" class="form-control"></textarea>
+        <div >
+            <div></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Ingredienser">Ingredienser</label>
+        <textarea formControlName="ingredienser" [(ngModel)]="opskrift.ingredienser" class="form-control"></textarea>
+        <div >
+            <div></div>
+        </div>
+    </div>
+    
+
+    <button class="btn btn-primary" type="submit">Opret Opskrift</button>
+</form>

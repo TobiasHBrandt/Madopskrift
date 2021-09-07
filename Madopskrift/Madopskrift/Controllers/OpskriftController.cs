@@ -52,5 +52,45 @@ namespace Madopskrift.Controllers
             return Ok(opskrift);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult PutOpskrift(int id, Opskrift opskrift)
+        {
+            using (var putOpskrift = _context)
+            {
+                var existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault<Opskrift>();
+
+                if (existingOpskrift != null)
+                {
+                    existingOpskrift.Titel = opskrift.Titel;
+                    existingOpskrift.Beskrivelse = opskrift.Beskrivelse;
+                    existingOpskrift.Ingredienser = opskrift.Ingredienser;
+
+                    putOpskrift.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+                return Ok();
+
+            }
+            //var opskrift = _context.Opskrift.FirstOrDefault(Opskrift => Opskrift.BrugerId == id);
+            //if (opskrift == null)
+            //{
+            //    return NotFound("ikke fundet");
+            //}
+            //if (opskrift.BrugerId == id)
+            //{
+            //    _context.Opskrift.Update(opskrift);
+            //    _context.SaveChanges();
+            //    return Ok(opskrift);
+            //}
+            //return BadRequest();
+        }
+
+       
+
+
     }
 }

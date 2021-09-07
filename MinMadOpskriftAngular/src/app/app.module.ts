@@ -11,6 +11,8 @@ import { OpretOpskriftComponent } from './opret-opskrift/opret-opskrift.componen
 import { ApiService } from './api.service';
 import { OpskriftComponent } from './opskrift/opskrift.component';
 import { NavComponent } from './nav/nav.component';
+import { MineOpskrifterComponent } from './mine-opskrifter/mine-opskrifter.component';
+import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NavComponent } from './nav/nav.component';
     OpretBrugerComponent,
     OpretOpskriftComponent,
     OpskriftComponent,
-    NavComponent
+    NavComponent,
+    MineOpskrifterComponent,
+    RedigerOpskriftComponent
   ],
   imports: [
     BrowserModule,

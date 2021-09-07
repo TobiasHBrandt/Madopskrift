@@ -37,6 +37,10 @@ export class ApiService {
     return this.http.post<Bruger>(this.BrugerUrl, JSON.stringify(data), this.httpOptions)
   }
 
+  updateOpskrift(data, id): Observable<Opskrift> {
+    return this.http.put<Opskrift>(this.opskriftUrl + "/" + Number(id), JSON.stringify(data), this.httpOptions)
+  }
+
   deleteAllOpskrift(): Observable<any> {
     return this.http.delete(this.opskriftUrl, this.httpOptions)
   }

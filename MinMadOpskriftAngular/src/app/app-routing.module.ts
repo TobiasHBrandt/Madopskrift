@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForsideComponent } from './forside/forside.component';
 import { OpretOpskriftComponent } from './opret-opskrift/opret-opskrift.component';
+import { MineOpskrifterComponent } from './mine-opskrifter/mine-opskrifter.component';
+import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.component';
 
 
 const routes: Routes = [{ path: '', component: ForsideComponent},
 { path: 'opretOpskrift', component: OpretOpskriftComponent},
 { path: 'opretBruger', component: OpretBrugerComponent},
-{ path: 'opskrift/:id', component: OpskriftComponent}];
+{ path: 'opskrift/:id', component: OpskriftComponent},
+{ path: 'mineOpskrifter', component: MineOpskrifterComponent},
+{ path: 'redigerOpskrift/:id', component: RedigerOpskriftComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -18,4 +22,4 @@ const routes: Routes = [{ path: '', component: ForsideComponent},
 export class AppRoutingModule { }
 
 export const routingComponent = {ForsideComponent, OpretOpskriftComponent, OpretBrugerComponent,
-OpskriftComponent};
+OpskriftComponent, MineOpskrifterComponent, RedigerOpskriftComponent};
