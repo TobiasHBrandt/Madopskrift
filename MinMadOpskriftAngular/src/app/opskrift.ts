@@ -4,6 +4,6 @@ export class Opskrift {
     titel: string;
     beskrivelse: string;
     ingredienser: string; 
-    fremgangsmåde: string;
+    fremgangsmoede: string;
     bruger: object;
 }

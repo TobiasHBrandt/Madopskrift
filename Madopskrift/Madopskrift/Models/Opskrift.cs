@@ -12,7 +12,7 @@ namespace Madopskrift.Models
         public string Titel { get; set; }
         public string Beskrivelse { get; set; }
         public string Ingredienser { get; set; }
-        public string Fremgangsmåde { get; set; }
+        public string Fremgangsmoede { get; set; }
 
         public virtual Bruger Bruger { get; set; }
     }

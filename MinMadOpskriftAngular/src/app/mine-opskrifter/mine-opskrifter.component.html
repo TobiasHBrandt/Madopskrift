@@ -3,7 +3,8 @@
     <u *ngFor="let opskrift of opskrifts" >
         <li>{{opskrift.titel}}</li>
         <li>{{opskrift.beskrivelse}}</li>
-        <li>{{opskrift.ingredienser}}</li> 
+        <li>{{opskrift.ingredienser}}</li>
+        <li>{{opskrift.fremgangsmoede}}</li>
         <button href="#" [routerLink]="['/redigerOpskrift/', opskrift.id]" class="btn btn-info">View</button>
     </u>
     

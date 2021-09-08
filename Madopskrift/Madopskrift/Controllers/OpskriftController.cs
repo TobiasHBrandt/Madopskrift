@@ -40,7 +40,7 @@ namespace Madopskrift.Controllers
                 Titel = a.Titel,
                 Beskrivelse = a.Beskrivelse,
                 Ingredienser = a.Ingredienser,
-                Fremgangsmåde = a.Fremgangsmåde
+                Fremgangsmoede = a.Fremgangsmoede
             }).Where(a => a.Id == id).FirstOrDefault();
 
             if (opskrift == null)
@@ -64,6 +64,7 @@ namespace Madopskrift.Controllers
                     existingOpskrift.Titel = opskrift.Titel;
                     existingOpskrift.Beskrivelse = opskrift.Beskrivelse;
                     existingOpskrift.Ingredienser = opskrift.Ingredienser;
+                    existingOpskrift.Fremgangsmoede = opskrift.Fremgangsmoede;
 
                     putOpskrift.SaveChanges();
                 }
@@ -87,6 +88,29 @@ namespace Madopskrift.Controllers
             //    return Ok(opskrift);
             //}
             //return BadRequest();
+        }
+
+        [HttpDelete("{Id}")]
+        public IActionResult DeleteOpskrift(int id)
+        {
+            using (var putOpskrift = _context)
+            {
+                var existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault<Opskrift>();
+
+                if (existingOpskrift != null)
+                {
+                    putOpskrift.Opskrift.Remove(existingOpskrift);
+                    putOpskrift.SaveChanges();
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+                
+
+            }
         }
 
        

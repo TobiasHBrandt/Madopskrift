@@ -31,7 +31,8 @@ export class RedigerOpskriftComponent implements OnInit {
     this.form = this.formbuilder.group({
       "titel": ['', Validators.required],
       "beskrivelse": ['', Validators.required],
-      "ingredienser": ['', Validators.required]
+      "ingredienser": ['', Validators.required],
+      "fremgangsmoede": ['', Validators.required]
       
     })
   }
@@ -42,5 +43,13 @@ export class RedigerOpskriftComponent implements OnInit {
     .subscribe(data => {
       this.router.navigateByUrl('');
     });
+  }
+
+  deleteOpskriften(id){
+    this.apiService.deleteOpskrift(id).subscribe(res => {
+      //this.opskrift = this.opskrift.filter(item => item.id !== id);
+      this.opskrift = res;
+      this.router.navigateByUrl('');
+    })
   }
 }

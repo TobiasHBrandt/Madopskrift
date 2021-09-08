@@ -44,4 +44,8 @@ export class ApiService {
   deleteAllOpskrift(): Observable<any> {
     return this.http.delete(this.opskriftUrl, this.httpOptions)
   }
+
+  deleteOpskrift(id){
+    return this.http.delete<Opskrift>(this.opskriftUrl + "/" + id, this.httpOptions)
+  }
 }

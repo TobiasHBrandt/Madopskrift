@@ -86,7 +86,7 @@ namespace Madopskrift.Data
 
                 entity.Property(e => e.BrugerId).HasColumnName("BrugerID");
 
-                entity.Property(e => e.Fremgangsmåde).IsRequired();
+                entity.Property(e => e.Fremgangsmoede).IsRequired();
 
                 entity.Property(e => e.Ingredienser).IsRequired();
 
