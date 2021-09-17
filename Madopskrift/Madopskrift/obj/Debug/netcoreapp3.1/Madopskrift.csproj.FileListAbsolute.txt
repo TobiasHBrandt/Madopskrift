@@ -147,8 +147,6 @@ D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Ma
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Madopskrift.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Madopskrift.pdb
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Madopskrift.Views.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\EntityFramework.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -186,7 +184,6 @@ D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Mi
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
@@ -194,7 +191,6 @@ D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\Sy
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
@@ -256,8 +252,6 @@ D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\ru
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
