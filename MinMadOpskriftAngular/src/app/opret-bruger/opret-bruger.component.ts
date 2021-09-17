@@ -17,10 +17,10 @@ export class OpretBrugerComponent implements OnInit {
 
   ngOnInit(): void{
     this.form = this.formbuilder.group({
-      "Brugernavn": ['', Validators.required],
-      "Password": ['', Validators.required],
-      "Alder": ['', Validators.required],
-      "Email": ['', Validators.required]
+      "Brugernavn": ['', Validators.minLength(2)],
+      "Password": ['', Validators.minLength(6)],
+      "Alder": [],
+      "Email": ['', Validators.minLength(4)]
     })
   }
 
@@ -34,20 +34,5 @@ export class OpretBrugerComponent implements OnInit {
       this.router.navigateByUrl('');
     });
   }
-
-  // ngOnInit(): void {
-  //   this.form = new FormGroup({
-  //     Brugernavn: new FormControl('', [Validators.required]),
-  //     Password: new FormControl('', [Validators.required]),
-  //     Alder: new FormControl('', [Validators.required]),
-  //     Email: new FormControl('', [Validators.required])
-  //   });
-  // }
-
-  // submit(){
-  //   console.log(this.form.value);
-  //   this.apiService.createOpskrift(this.form.value);
-  //   this.router.navigateByUrl('')
-  // }
 
 }

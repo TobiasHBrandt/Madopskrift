@@ -17,18 +17,12 @@ export class OpskriftComponent implements OnInit {
   constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    
-    //this.id = this.route.params['id']
-    // this.route.params.subscribe(data2 => {
-    //   this.id = data2.id;
-    // })
+
     const routeParams = this.route.snapshot.paramMap;
     this.id = Number(routeParams.get('id'));
     this.apiService.getOpskriftById(this.id).subscribe((data: Opskrift) => {
       this.opskrift = data;
       console.log(data);
-      // this.opskrift = new Opskrift();
-      // this.opskrift.titel = "bacon";
     });
   }
 

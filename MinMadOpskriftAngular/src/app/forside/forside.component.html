@@ -1,12 +1,10 @@
 
 <div>
-    <u *ngFor="let opskrift of opskrifts" >
-        <li>{{opskrift.titel}}</li>
-        <li>{{opskrift.beskrivelse}}</li>
-        <li>{{opskrift.ingredienser}}</li> 
-        <button href="#" [routerLink]="['/opskrift/', opskrift.id]" class="btn btn-info">View</button>
-    </u>
+    <div class="list" *ngFor="let opskrift of opskrifts" >
+        <p>{{opskrift.titel}}</p>
+        
+        <button href="#" [routerLink]="['/opskrift/', opskrift.id]" class="btn btn-info">Vis opskrift</button>
+    </div>
     
     
 </div>
-<button (click)="removeAllOpskrift()">Fjern alle opskrifter</button>

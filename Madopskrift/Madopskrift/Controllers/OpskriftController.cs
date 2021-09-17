@@ -48,8 +48,28 @@ namespace Madopskrift.Controllers
                 return NotFound();
             }
 
-            //return new JsonResult(opskrift);
             return Ok(opskrift);
+        }
+
+        [HttpPost]
+
+        public IActionResult PostOpskrift(Opskrift opskrift)
+        {
+            using (var PostOpskrift = _context)
+            {
+                if (PostOpskrift != null)
+                {
+                    _context.Opskrift.Add(opskrift);
+                    _context.SaveChanges();
+                    return Ok("tilfoej opskrift");
+                }
+                else
+                {
+                    return NotFound("Not added");
+                }
+
+            }
+
         }
 
         [HttpPut("{id}")]

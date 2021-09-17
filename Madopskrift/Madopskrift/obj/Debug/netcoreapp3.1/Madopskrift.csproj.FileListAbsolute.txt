@@ -308,3 +308,4 @@ D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\obj\Debug\netcoreapp3.1\Ma
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\obj\Debug\netcoreapp3.1\Madopskrift.RazorTargetAssemblyInfo.cs
 D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\obj\Debug\netcoreapp3.1\Madopskrift.Views.pdb
+D:\Github projekt\Madopskrift\Madopskrift\Madopskrift\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll

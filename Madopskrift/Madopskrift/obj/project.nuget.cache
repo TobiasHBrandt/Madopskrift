@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "W/tgJeo3/nL7JFMHzpDb5Dx4wX9hLddDVPA6V0R99jTZguHAjafwKWSXog4Ne9K0FoOkGGchai5sWSp25g0VDg==",
+  "dgSpecHash": "frx159olpIbBr0/d1ljFSlFJpcPj2v0lhdBSqQ5UTa10+Ye5QZ/W5RBov71QgpBFaJDDNKq28CwAuhhK9QDTcw==",
   "success": true,
   "projectFilePath": "D:\\Github projekt\\Madopskrift\\Madopskrift\\Madopskrift\\Madopskrift.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tobias\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\tobias\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\tobias\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\tobias\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

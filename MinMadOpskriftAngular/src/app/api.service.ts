@@ -41,11 +41,11 @@ export class ApiService {
     return this.http.put<Opskrift>(this.opskriftUrl + "/" + Number(id), JSON.stringify(data), this.httpOptions)
   }
 
-  deleteAllOpskrift(): Observable<any> {
-    return this.http.delete(this.opskriftUrl, this.httpOptions)
-  }
-
   deleteOpskrift(id){
     return this.http.delete<Opskrift>(this.opskriftUrl + "/" + id, this.httpOptions)
+  }
+
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(this.BrugerUrl, {email, password}, this.httpOptions)
   }
 }

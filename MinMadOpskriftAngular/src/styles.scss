@@ -7,3 +7,25 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+button{
+    border-radius: 12px;
+    background-color: #99ccff;
+}
+button:hover{
+    background-color: #0066cc;
+}
+
+.list{
+    background-color: #f2e6d9;
+    width: fit-content;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.btnOpskrift{
+    text-align: center;
+    margin: auto;
+}

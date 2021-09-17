@@ -6,6 +6,7 @@ import { ForsideComponent } from './forside/forside.component';
 import { OpretOpskriftComponent } from './opret-opskrift/opret-opskrift.component';
 import { MineOpskrifterComponent } from './mine-opskrifter/mine-opskrifter.component';
 import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [{ path: '', component: ForsideComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [{ path: '', component: ForsideComponent},
 { path: 'opretBruger', component: OpretBrugerComponent},
 { path: 'opskrift/:id', component: OpskriftComponent},
 { path: 'mineOpskrifter', component: MineOpskrifterComponent},
-{ path: 'redigerOpskrift/:id', component: RedigerOpskriftComponent}];
+{ path: 'redigerOpskrift/:id', component: RedigerOpskriftComponent},
+{ path: 'login', component: LoginComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -22,4 +24,4 @@ const routes: Routes = [{ path: '', component: ForsideComponent},
 export class AppRoutingModule { }
 
 export const routingComponent = {ForsideComponent, OpretOpskriftComponent, OpretBrugerComponent,
-OpskriftComponent, MineOpskrifterComponent, RedigerOpskriftComponent};
+OpskriftComponent, MineOpskrifterComponent, RedigerOpskriftComponent, LoginComponent};

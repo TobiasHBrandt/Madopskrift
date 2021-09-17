@@ -13,6 +13,7 @@ import { OpskriftComponent } from './opskrift/opskrift.component';
 import { NavComponent } from './nav/nav.component';
 import { MineOpskrifterComponent } from './mine-opskrifter/mine-opskrifter.component';
 import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.co
     OpskriftComponent,
     NavComponent,
     MineOpskrifterComponent,
-    RedigerOpskriftComponent
+    RedigerOpskriftComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

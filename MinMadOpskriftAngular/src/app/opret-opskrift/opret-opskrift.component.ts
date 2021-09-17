@@ -1,6 +1,6 @@
 import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,14 +13,15 @@ export class OpretOpskriftComponent implements OnInit {
   submitted: boolean = false;
   form: FormGroup;
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router, private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      Title: new FormControl('', [Validators.required]),
-      Beskrivelse: new FormControl('', [Validators.required]),
-      Ingredienser: new FormControl('', [Validators.required])
-    });
+    this.form = this.formbuilder.group({
+      "titel": [],
+      "beskrivelse": [],
+      "ingredienser": [],
+      "fremgangsmoede": []
+    })
   }
 
   onSubmit() {

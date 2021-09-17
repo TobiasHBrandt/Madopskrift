@@ -11,7 +11,7 @@ export class MineOpskrifterComponent implements OnInit {
 
   opskrifts: [];
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getAllOpskrift();

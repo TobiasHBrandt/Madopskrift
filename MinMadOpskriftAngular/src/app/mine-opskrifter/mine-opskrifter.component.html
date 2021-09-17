@@ -1,12 +1,9 @@
-<div>
-    <button class="navContent2" routerLink="/opretOpskrift">Opret opskrift</button>
-    <u *ngFor="let opskrift of opskrifts" >
-        <li>{{opskrift.titel}}</li>
-        <li>{{opskrift.beskrivelse}}</li>
-        <li>{{opskrift.ingredienser}}</li>
-        <li>{{opskrift.fremgangsmoede}}</li>
-        <button href="#" [routerLink]="['/redigerOpskrift/', opskrift.id]" class="btn btn-info">View</button>
-    </u>
+<div class="list">  
+    <button class="btnOpskrift" routerLink="/opretOpskrift">Opret opskrift</button>
+    <div  *ngFor="let opskrift of opskrifts" >
+        <p>{{opskrift.titel}}</p>
+        <button href="#" [routerLink]="['/redigerOpskrift/', opskrift.id]" class="btn btn-info">Rediger opskrift</button>
+    </div>
     
     
 </div>

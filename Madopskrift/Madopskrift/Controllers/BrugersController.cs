@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Madopskrift.Data;
 using Madopskrift.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.DataProtection;
+using BC = BCrypt.Net.BCrypt;
+using Microsoft.Extensions.Configuration;
 
 namespace Madopskrift.Controllers
 {
@@ -18,10 +21,13 @@ namespace Madopskrift.Controllers
     public class BrugersController : Controller
     {
         private readonly MadopskriftDbContext _context;
+       
 
-        public BrugersController(MadopskriftDbContext context)
+        public BrugersController(MadopskriftDbContext context, IDataProtectionProvider provider,
+            IConfiguration config)
         {
             _context = context;
+            
         }
 
         // GET: Brugers
@@ -56,27 +62,38 @@ namespace Madopskrift.Controllers
         }
 
         // POST: Brugers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
 
-        public ActionResult PostBruger([FromBody] Bruger bruger)
+        public ActionResult PostBruger(Bruger bruger)
         {
-            using (var PostBruger = _context)
-            {
-                if (PostBruger != null)
-                {
-                    _context.Brugers.Add(bruger);
-                    _context.SaveChanges();
-                    return Ok("tilfoej bruger");
-                }
-                else
-                {
-                    return NotFound("Not added");
-                }
+            var PostBruger = _context;
 
-            }
             
+
+            if (PostBruger != null)
+            {
+                _context.Brugers.Add(bruger);
+                _context.SaveChanges();
+                return Ok("tilfoej bruger");
+            }
+            else
+            {
+                return NotFound("Not added");
+            }
+
+            //var existingBruger = PostBruger.Brugers.Where(o => o.Email == email.Email && o.Password == email.Password).FirstOrDefault();
+
+
+            //if (PostBruger != null)
+            //{
+            //    PostBruger.Brugers.Add(existingBruger);
+            //    PostBruger.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Bruger ON;");
+            //    PostBruger.SaveChanges();
+            //    PostBruger.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Bruger OFF;");
+            //    return Ok("tilfoej bruger");
+            //}
+
         }
 
         // GET: Brugers/Edit/5

@@ -24,10 +24,5 @@ export class ForsideComponent implements OnInit {
       this.opskrifts = data;
     })
   }
-  removeAllOpskrift(): void {
-    this.apiService.deleteAllOpskrift().subscribe(() => {
-      this.getAllOpskrift();
-    })
-  }
 
 }
