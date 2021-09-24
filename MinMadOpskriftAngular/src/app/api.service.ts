@@ -10,16 +10,21 @@ import { catchError } from "rxjs/operators";
 })
 export class ApiService {
 
+  // api url i backend
   opskriftUrl = "https://localhost:5001/api/Opskrift";
   BrugerUrl = "https://localhost:5001/api/Bruger"
 
+  // Angiver hvilken type af ressource det er som eksempel JSON
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
 
+  // Httpclient gør at mam kan lave http request
   constructor(private http: HttpClient) { }
+
+  // methoderne returnere HTTP request
 
   getOpskrift(): Observable<Opskrift> {
     return this.http.get<Opskrift>(this.opskriftUrl)

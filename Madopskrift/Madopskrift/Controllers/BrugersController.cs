@@ -14,17 +14,18 @@ using Microsoft.Extensions.Configuration;
 
 namespace Madopskrift.Controllers
 {
-
+    // tilføjer en url sti til controlleren
     [Route("api/Bruger")]
+    // tillader at kunne sende data frem og tilbage
     [EnableCors("Policy")]
     [ApiController]
     public class BrugersController : Controller
     {
+        // _context læser fra dbcontext
         private readonly MadopskriftDbContext _context;
        
-
-        public BrugersController(MadopskriftDbContext context, IDataProtectionProvider provider,
-            IConfiguration config)
+        // constrocter med en parameter
+        public BrugersController(MadopskriftDbContext context)
         {
             _context = context;
             
@@ -67,16 +68,19 @@ namespace Madopskrift.Controllers
 
         public ActionResult PostBruger(Bruger bruger)
         {
-            var PostBruger = _context;
+            // en lokal variable
+            MadopskriftDbContext PostBruger = _context;
 
-            
-
+            // tjækker om brugeren ikke er null
             if (PostBruger != null)
             {
-                _context.Brugers.Add(bruger);
-                _context.SaveChanges();
+                // ville den tiljøje og gemme brugeren hvor den returnere en ok
+                PostBruger.Brugers.Add(bruger);
+                PostBruger.SaveChanges();
                 return Ok("tilfoej bruger");
             }
+
+            // hvis brugeren er en null værdi ville den ikke tilføje brugeren
             else
             {
                 return NotFound("Not added");
