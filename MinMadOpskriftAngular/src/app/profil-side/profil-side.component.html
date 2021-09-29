@@ -1,0 +1,30 @@
+
+<form class="list" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label>Brugernavn</label>
+        <br/>
+        <input formControlName="Brugernavn" [(ngModel)]="brugernavn"  class="form-control">
+        
+    </div>
+
+    
+
+    <div>
+        <label>Alder</label>
+        <br/>
+        <input formControlName="Alder" [(ngModel)]="alder"  class="form-control" type="number">
+        
+    </div>
+
+    <div>
+        <label>Email</label>
+        <br/>
+        <input formControlName="Email" [(ngModel)]="email"  class="form-control">
+        
+    </div>
+
+    <br/>
+    <button class="btn btn-primary" type="submit">Rediger bruger</button>
+    <button type="button" (click)="deleteBruger()" class="btn btn-danger">Delete</button>
+</form>

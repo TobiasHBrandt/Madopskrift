@@ -14,6 +14,7 @@ import { NavComponent } from './nav/nav.component';
 import { MineOpskrifterComponent } from './mine-opskrifter/mine-opskrifter.component';
 import { RedigerOpskriftComponent } from './rediger-opskrift/rediger-opskrift.component';
 import { LoginComponent } from './login/login.component';
+import { ProfilSideComponent } from './profil-side/profil-side.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     NavComponent,
     MineOpskrifterComponent,
     RedigerOpskriftComponent,
-    LoginComponent
+    LoginComponent,
+    ProfilSideComponent
   ],
   imports: [
     BrowserModule,

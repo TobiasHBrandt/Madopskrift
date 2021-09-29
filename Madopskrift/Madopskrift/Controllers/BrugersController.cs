@@ -39,21 +39,45 @@ namespace Madopskrift.Controllers
         }
 
         // GET: Brugers/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var bruger = await _context.Brugers
-                .FirstOrDefaultAsync(m => m.Id == id);
+        //    var bruger = await _context.Brugers
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (bruger == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(bruger);
+        //}
+
+        [HttpGet("{Id}")]
+        public IActionResult GetBruger(int id)
+        {
+            MadopskriftDbContext visBruger = _context;
+            // den laver en query select på Opskrift som ville hente kolonner
+            Bruger bruger = visBruger.Brugers.Select(a => new Bruger
+            {
+                // sætter opskrift værdier til at være lig med a parameter
+                Id = a.Id,
+                Brugernavn = a.Brugernavn,
+                Alder = a.Alder,
+                Email = a.Email
+               
+                // den tjekker om det indeholder en id hvis den gør ville den vælge første id
+            }).Where(a => a.Id == id).FirstOrDefault();
+
             if (bruger == null)
             {
                 return NotFound();
             }
 
-            return View(bruger);
+            return Ok(bruger);
         }
 
         // GET: Brugers/Create
@@ -71,10 +95,10 @@ namespace Madopskrift.Controllers
             // en lokal variable
             MadopskriftDbContext PostBruger = _context;
 
-            // tjækker om brugeren ikke er null
+            // tjekker om brugeren ikke er null
             if (PostBruger != null)
             {
-                // ville den tiljøje og gemme brugeren hvor den returnere en ok
+                // ville tiljøje og gemme brugeren hvor den returnere en ok
                 PostBruger.Brugers.Add(bruger);
                 PostBruger.SaveChanges();
                 return Ok("tilfoej bruger");
@@ -86,104 +110,95 @@ namespace Madopskrift.Controllers
                 return NotFound("Not added");
             }
 
-            //var existingBruger = PostBruger.Brugers.Where(o => o.Email == email.Email && o.Password == email.Password).FirstOrDefault();
+        }
 
+        [HttpPost("login", Name = "login")]
 
-            //if (PostBruger != null)
-            //{
-            //    PostBruger.Brugers.Add(existingBruger);
-            //    PostBruger.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Bruger ON;");
-            //    PostBruger.SaveChanges();
-            //    PostBruger.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Bruger OFF;");
-            //    return Ok("tilfoej bruger");
-            //}
+        public ActionResult Login(Bruger bruger)
+        {
+            // en lokal variable
+            MadopskriftDbContext PostBruger = _context;
+
+            // tjekker om brugeren ikke er null
+            if (PostBruger != null)
+            {
+                // ville tjekke om email og password matcher
+                Bruger login = PostBruger.Brugers.SingleOrDefault(a => a.Email == bruger.Email && a.Password == bruger.Password);
+                // hvis login ikke matcher
+                if (login == null)
+                {
+                    Bruger bruger2 = new Bruger();
+                    return Ok(bruger2);
+                }
+                // hvis de matcher
+                else
+                {
+                    return Ok(login);
+                }
+                
+
+            }
+
+            // hvis brugeren er en null værdi ville den ikke tilføje brugeren
+            else
+            {
+                return NotFound("Not added");
+            }
 
         }
 
-        // GET: Brugers/Edit/5
-        //[HttpPut]
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPut("{id}")]
+        public IActionResult PutBruger(int id, Bruger bruger)
+        {
+            // en lokal variable
+            MadopskriftDbContext putBruger = _context;
 
-        //    var bruger = await _context.Brugers.FindAsync(id);
-        //    if (bruger == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(bruger);
-        //}
+            // den tjekker om det indeholder en id hvis den gør ville den vælge første id
+            Bruger existingBruger = putBruger.Brugers.Where(o => o.Id == id).FirstOrDefault();
 
-        //// POST: Brugers/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Brugernavn,Alder,Email,Password")] Bruger bruger)
-        //{
-        //    if (id != bruger.Id)
-        //    {
-        //        return NotFound();
-        //    }
+            // tjekker om bruger ikke er null
+            if (existingBruger != null)
+            {
+                // sætter existingOpskrift til at være lig med bruger
+                existingBruger.Brugernavn = bruger.Brugernavn;
+                existingBruger.Alder = bruger.Alder;
+                existingBruger.Email = bruger.Email;
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(bruger);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!BrugerExists(bruger.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(bruger);
-        //}
+                // den vil gemme opdateringen og returnere en Ok
+                putBruger.SaveChanges();
+                return Ok();
+            }
+            // hvis opskrift er en null værdi ville den ikke opdatere bruger
+            else
+            {
+                return NotFound();
+            }
 
-        //// GET: Brugers/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        }
 
-        //    var bruger = await _context.Brugers
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (bruger == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpDelete("{Id}")]
+        public IActionResult DeleteBruger(int id)
+        {
+            // lokal variable
+            MadopskriftDbContext putBruger = _context;
+            // den tjekker om det indeholder en id hvis den gør ville den vælge første id
+            Bruger existingBruger = putBruger.Brugers.Where(o => o.Id == id).FirstOrDefault();
 
-        //    return View(bruger);
-        //}
+            // tjekker om opskrift ikke er null
+            if (existingBruger != null)
+            {
+                // ville slette bruger og gemme 
+                putBruger.Brugers.Remove(existingBruger);
+                putBruger.SaveChanges();
+                // returnere en Ok
+                return Ok();
+            }
+            // hvis bruger er en null værdi ville den ikke slette bruger
+            else
+            {
+                return NotFound();
+            }
+        }
 
-        //// POST: Brugers/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var bruger = await _context.Brugers.FindAsync(id);
-        //    _context.Brugers.Remove(bruger);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //private bool BrugerExists(int id)
-        //{
-        //    return _context.Brugers.Any(e => e.Id == id);
-        //}
     }
 }

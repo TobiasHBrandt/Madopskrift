@@ -13,6 +13,7 @@ export class ApiService {
   // api url i backend
   opskriftUrl = "https://localhost:5001/api/Opskrift";
   BrugerUrl = "https://localhost:5001/api/Bruger"
+  Login = "https://localhost:5001/api/Bruger/login"
 
   // Angiver hvilken type af ressource det er som eksempel JSON
   httpOptions = {
@@ -41,6 +42,13 @@ export class ApiService {
   createBruger(data): Observable<Bruger> {
     return this.http.post<Bruger>(this.BrugerUrl, JSON.stringify(data), this.httpOptions)
   }
+  updateBruger(data, id): Observable<Bruger> {
+    return this.http.put<Bruger>(this.BrugerUrl + "/" + id, JSON.stringify(data), this.httpOptions)
+  }
+
+  deleteBruger(id){
+    return this.http.delete<Bruger>(this.BrugerUrl + "/" + id, this.httpOptions)
+  }
 
   updateOpskrift(data, id): Observable<Opskrift> {
     return this.http.put<Opskrift>(this.opskriftUrl + "/" + Number(id), JSON.stringify(data), this.httpOptions)
@@ -51,6 +59,6 @@ export class ApiService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(this.BrugerUrl, {email, password}, this.httpOptions)
+    return this.http.post<any>(this.Login, {email, password}, this.httpOptions)
   }
 }

@@ -33,14 +33,18 @@ namespace Madopskrift.Controllers
         [HttpGet("{Id}")]
         public IActionResult GetOpskriften(int id)
         {
-            var opskrift = _context.Opskrift.Select(a => new Opskrift
+            MadopskriftDbContext visOpskrift = _context;
+            // den laver en query select på Opskrift som ville hente kolonner
+            Opskrift opskrift = visOpskrift.Opskrift.Select(a => new Opskrift
             {
+                // sætter opskrift værdier til at være lig med a parameter
                 Id = a.Id,
                 BrugerId = a.BrugerId,
                 Titel = a.Titel,
                 Beskrivelse = a.Beskrivelse,
                 Ingredienser = a.Ingredienser,
                 Fremgangsmoede = a.Fremgangsmoede
+                // den tjekker om det indeholder en id hvis den gør ville den vælge første id
             }).Where(a => a.Id == id).FirstOrDefault();
 
             if (opskrift == null)
@@ -55,19 +59,16 @@ namespace Madopskrift.Controllers
 
         public IActionResult PostOpskrift(Opskrift opskrift)
         {
-            using (var PostOpskrift = _context)
+            var PostOpskrift = _context;
+            if (PostOpskrift != null)
             {
-                if (PostOpskrift != null)
-                {
-                    _context.Opskrift.Add(opskrift);
-                    _context.SaveChanges();
-                    return Ok("tilfoej opskrift");
-                }
-                else
-                {
-                    return NotFound("Not added");
-                }
-
+                _context.Opskrift.Add(opskrift);
+                _context.SaveChanges();
+                return Ok("tilfoej opskrift");
+            }
+            else
+            {
+                return NotFound("Not added");
             }
 
         }
@@ -75,66 +76,56 @@ namespace Madopskrift.Controllers
         [HttpPut("{id}")]
         public IActionResult PutOpskrift(int id, Opskrift opskrift)
         {
-            using (var putOpskrift = _context)
+            // en lokal variable
+            MadopskriftDbContext putOpskrift = _context;
+
+            // den tjekker om det indeholder en id hvis den gør ville den vælge første id
+            Opskrift existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault();
+
+            // tjekker om opskrift ikke er null
+            if (existingOpskrift != null)
             {
-                var existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault<Opskrift>();
+                // sætter existingOpskrift til at være lig med opskrift
+                existingOpskrift.Titel = opskrift.Titel;
+                existingOpskrift.Beskrivelse = opskrift.Beskrivelse;
+                existingOpskrift.Ingredienser = opskrift.Ingredienser;
+                existingOpskrift.Fremgangsmoede = opskrift.Fremgangsmoede;
 
-                if (existingOpskrift != null)
-                {
-                    existingOpskrift.Titel = opskrift.Titel;
-                    existingOpskrift.Beskrivelse = opskrift.Beskrivelse;
-                    existingOpskrift.Ingredienser = opskrift.Ingredienser;
-                    existingOpskrift.Fremgangsmoede = opskrift.Fremgangsmoede;
-
-                    putOpskrift.SaveChanges();
-                }
-                else
-                {
-                    return NotFound();
-                }
-
+                // den vil gemme opdateringen og returnere en Ok
+                putOpskrift.SaveChanges();
                 return Ok();
-
             }
-            //var opskrift = _context.Opskrift.FirstOrDefault(Opskrift => Opskrift.BrugerId == id);
-            //if (opskrift == null)
-            //{
-            //    return NotFound("ikke fundet");
-            //}
-            //if (opskrift.BrugerId == id)
-            //{
-            //    _context.Opskrift.Update(opskrift);
-            //    _context.SaveChanges();
-            //    return Ok(opskrift);
-            //}
-            //return BadRequest();
+            // hvis opskrift er en null værdi ville den ikke opdatere opskrift
+            else
+            {
+                return NotFound();
+            }
+
         }
 
         [HttpDelete("{Id}")]
         public IActionResult DeleteOpskrift(int id)
         {
-            using (var putOpskrift = _context)
+            // lokal variable
+            MadopskriftDbContext putOpskrift = _context;
+            // den tjekker om det indeholder en id hvis den gør ville den vælge første id
+            var existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault();
+
+            // tjekker om opskrift ikke er null
+            if (existingOpskrift != null)
             {
-                var existingOpskrift = putOpskrift.Opskrift.Where(o => o.Id == id).FirstOrDefault<Opskrift>();
-
-                if (existingOpskrift != null)
-                {
-                    putOpskrift.Opskrift.Remove(existingOpskrift);
-                    putOpskrift.SaveChanges();
-                    return Ok();
-                }
-                else
-                {
-                    return NotFound();
-                }
-
-                
-
+                // ville slette opskrift og gemme 
+                putOpskrift.Opskrift.Remove(existingOpskrift);
+                putOpskrift.SaveChanges();
+                // returnere en Ok
+                return Ok();
+            }
+            // hvis opskrift er en null værdi ville den ikke slette opskrift
+            else
+            {
+                return NotFound();
             }
         }
-
-       
-
 
     }
 }

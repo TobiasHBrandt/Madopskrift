@@ -1,8 +1,10 @@
 import { TokenStorageService } from './../token-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Opskrift } from '../opskrift';
+import { Bruger } from '../bruger';
 
 @Component({
   selector: 'app-login',
@@ -11,39 +13,42 @@ import { ApiService } from '../api.service';
 })
 export class LoginComponent implements OnInit {
 
+  id: number;
+  bruger: Bruger;
+  //submitted: boolean = false;
+
   form: any = {
     email: null,
     password: null
   };
-  isLoggedIn = false;
-  isLoginFailed = false;
-  roles: string[] = [];
-
-  submitted: boolean = false;
-  
-
-  constructor(private apiService: ApiService, private router: Router,
+ 
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router,
      private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void{
-   if (this.tokenStorage.getToken()) {
-     this.isLoggedIn = true;
-     this.roles = this.tokenStorage.getBruger().roles;
-   }
+    
   }
 
   onSubmit() {
    const { email, password} = this.form;
 
-   this.apiService.login(email, password).subscribe(data => {
-     this.tokenStorage.saveToken(data.accessToken);
-     this.tokenStorage.saveBruger(data);
-
-     this.isLoginFailed = false;
-     this.isLoggedIn = true;
-     this.roles = this.tokenStorage.getBruger().roles;
-     this.reloadPage();
-   })
+    this.apiService.login(email, password).subscribe((data: Bruger) => {
+      this.bruger = data;
+      
+      if (data == null) {
+       
+        alert("eafsdsdfe");
+      }
+      else {
+        this.tokenStorage.saveToken("brugernavn", this.bruger.brugernavn);
+        this.tokenStorage.saveToken("alder", String(this.bruger.alder));
+        this.tokenStorage.saveToken("email", this.bruger.email);
+        this.tokenStorage.saveToken("id", String(this.bruger.id));
+        
+        console.log(this.tokenStorage.getCostumToken("brugernavn"));
+        this.reloadPage();
+      } 
+    })
   }
 
   reloadPage(): void {

@@ -5,8 +5,16 @@
             <button class="navContent2" routerLink="">Forside</button>
             <button class="navContent2" routerLink="/mineOpskrifter">Mine Opskrifter</button>
             <button class="navContent2" routerLink="/opretBruger">Opret Bruger</button>
+            <button *ngIf="isLoggedIn" routerLink="/profil">Profil</button>
             <button class="navContent2" routerLink="/login">Logind</button>
             <input class="navContent2" type="text" placeholder="Search..">
+            
+                {{brugernavn}}
+            
+            <form (ngSubmit)="onSubmit()">
+                <button *ngIf="isLoggedIn" type="submit">Log ud</button>
+            </form>
+            
         </div>
     </nav>
 </body>

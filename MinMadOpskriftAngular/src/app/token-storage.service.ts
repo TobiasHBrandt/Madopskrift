@@ -14,27 +14,19 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, token);
+  
+
+  public saveToken(token: string, value: string): void {
+    // window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(token, value);
   }
 
-  public getToken(): string | null {
-    return window.sessionStorage.getItem(TOKEN_KEY);
+ 
+
+  public getCostumToken(token: string): string | null {
+    return window.sessionStorage.getItem(token);
   }
 
-  public saveBruger(bruger: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(bruger));
-  }
-
-  public getBruger(): any {
-    const bruger = window.sessionStorage.getItem(USER_KEY);
-    if (bruger) {
-      return JSON.parse(bruger);
-    }
-
-    return {};
-  }
+  
   
 }
